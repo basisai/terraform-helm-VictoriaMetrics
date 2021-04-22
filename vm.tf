@@ -12,7 +12,7 @@ resource "helm_release" "vm" {
   ]
 }
 
-locals{
+locals {
   scrape_config_values = {
     vm_agent_enabled = var.vm_agent_enabled
 

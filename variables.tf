@@ -23,7 +23,7 @@ variable "server_scrape_timeout" {
 
 variable "server_alerts" {
   description = "Prometheus server alerts entries in YAML. Ref: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/"
-  default = <<-EOF
+  default     = <<-EOF
     []
     # - name: Instances
     #   rules:
