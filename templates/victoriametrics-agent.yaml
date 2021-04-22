@@ -1,0 +1,72 @@
+replicaCount: ${replica_count}
+
+image:
+  repository: ${image_repository}
+  tag: ${image_tag}
+  pullPolicy: IfNotPresent
+
+rbac:
+  create: true
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+
+# WARN: need to specify at least one remote write url
+remoteWriteUrls:
+  - ${remote_write_url}
+
+extraArgs: ${extra_args}
+  # promscrape.maxScrapeSize: "167772160"
+
+podSecurityContext: ${security_context}
+
+resources: ${resources}
+
+# Annotations to be added to pod
+podAnnotations: ${pod_annotations}
+
+nodeSelector: ${node_selector}
+
+tolerations: ${tolerations}
+
+affinity: ${affinity}
+
+# vmagent scraping configuration:
+# https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/docs/vmagent.md#how-to-collect-metrics-in-prometheus-format
+
+# use existing configmap if specified
+# otherwise .config values will be used
+configMap: ""
+
+# Extra Volumes for the pod
+extraVolumes: ${extra_volumes}
+  # - name: example
+  #   configMap:
+  #     name: example
+
+# Extra Volume Mounts for the container
+extraVolumeMounts: ${extra_volume_mounts}
+  # - name: example
+  #   mountPath: /example
+
+config:
+  global:
+    ## How frequently to scrape targets by default
+    ##
+    scrape_interval: ${scrape_interval}
+    ## How long until a scrape request times out
+    ##
+    scrape_timeout: ${scrape_timeout}
+    ## How frequently to evaluate rules
+    ##
+    evaluation_interval: ${evaluation_interval}
+    ${indent(4, additional_global)}
+
+  scrape_configs:
+    # scrape self by default
+    - job_name: vmagent
+      static_configs:
+        - targets:
+          - localhost:8429
+    ${scrape_configs}

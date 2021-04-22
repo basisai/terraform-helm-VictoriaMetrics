@@ -1,0 +1,120 @@
+clusterDomainSuffix: cluster.local
+
+rbac:
+  create: true
+  pspEnabled: ${psp_enabled}
+  namespaced: true
+  annotations: {}
+
+serviceAccount:
+  create: true
+  annotations: ${service_account_annotations}
+
+vmselect:
+  enabled: ${select_enabled}
+  name: vmselect
+  image:
+    repository: ${select_image_repository}
+    tag: ${select_image_tag}
+    pullPolicy: IfNotPresent
+  priorityClassName: ${select_priority_class_name}
+  extraArgs: ${select_extra_args}
+
+  tolerations: ${select_tolerations}
+  nodeSelector: ${select_node_selector}
+  affinity: ${select_affinity}
+  podAnnotations: ${select_pod_annotations}
+  replicaCount: ${select_replica_count}
+  resources: ${select_resources}
+
+  securityContext: ${select_security_context}
+
+  service:
+    annotations: ${select_service_annotations}
+    labels: ${select_service_labels}
+    servicePort: ${select_service_port}
+    type: ${select_service_type}
+
+  ingress:
+    enabled: ${select_ingress_enabled}
+    annotations: ${select_ingress_annotations}
+    hosts: ${select_ingress_hosts}
+
+  statefulSet:
+    enabled: ${select_pv_enabled}
+  persistentVolume:
+    enabled: ${select_pv_enabled}
+    accessModes: ${select_pv_access_modes}
+    annotations: ${select_pv_annotations}
+    size: ${select_pv_size}
+  serviceMonitor:
+    enabled: false
+
+vminsert:
+  enabled: ${insert_enabled}
+  name: vminsert
+  image:
+    repository: ${insert_image_repository}
+    tag: ${insert_image_tag}
+    pullPolicy: IfNotPresent
+  priorityClassName: ${insert_priority_class_name}
+  extraArgs: ${insert_extra_args}
+
+  tolerations: ${insert_tolerations}
+  nodeSelector: ${insert_node_selector}
+  affinity: ${insert_affinity}
+  podAnnotations: ${insert_pod_annotations}
+  replicaCount: ${insert_replica_count}
+  resources: ${insert_resources}
+
+  securityContext: ${insert_security_context}
+
+  service:
+    annotations: ${insert_service_annotations}
+    labels: ${insert_service_labels}
+    servicePort: ${insert_service_port}
+    type: ${insert_service_type}
+
+  ingress:
+    enabled: false
+  serviceMonitor:
+    enabled: false
+
+vmstorage:
+  enabled: ${storage_enabled}
+  name: vmstorage
+  image:
+    repository: ${storage_image_repository}
+    tag: ${storage_image_tag}
+    pullPolicy: IfNotPresent
+  priorityClassName: ${storage_priority_class_name}
+
+  ## Data retention period in months
+  retentionPeriod: ${storage_retention_period}
+  extraArgs: ${storage_extra_args}
+
+  tolerations: ${storage_tolerations}
+  nodeSelector: ${storage_node_selector}
+  affinity: ${storage_affinity}
+
+  persistentVolume:
+    enabled: ${storage_pv_enabled}
+    accessModes: ${storage_pv_access_modes}
+    annotations: ${storage_pv_annotations}
+    size: ${storage_pv_size}
+
+  podAnnotations: ${storage_pod_annotations}
+  replicaCount: ${storage_replica_count}
+  resources: ${storage_resources}
+
+  securityContext: ${storage_security_context}
+
+  service:
+    annotations: ${storage_service_annotations}
+    labels: ${storage_service_labels}
+    servicePort: ${storage_service_port}
+    vminsertPort: ${storage_vm_insert_port}
+    vmselectPort: ${storage_vm_select_port}
+  terminationGracePeriodSeconds: ${storage_termination_grace_period_seconds}
+  serviceMonitor:
+    enabled: false

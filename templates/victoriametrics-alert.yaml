@@ -1,0 +1,61 @@
+serviceAccount:
+  create: true
+
+alertmanager:
+  enabled: false
+
+server:
+  name: server
+  enabled: ${enabled}
+  image:
+    repository: ${image_repository}
+    tag: ${image_tag}
+    pullPolicy: IfNotPresent
+  replicaCount: ${replica_count}
+  # vmalert reads metrics from source, next section represents its configuration.
+  # It can be any service which supports MetricsQL or PromQL.
+  datasource:
+    url: ${datasource_url}
+
+  remote:
+    write:
+      url: ${remote_write_url}
+    read:
+      url: ${remote_read_url}
+
+  notifier:
+    alertmanager:
+      url: ${alertmanager_url}
+
+  extraArgs: ${extra_args}
+
+  service:
+    annotations: ${service_annotations}
+    labels: ${service_labels}
+    servicePort: ${service_port}
+    type: ${service_type}
+
+  ingress:
+    enabled: false
+
+  podSecurityContext: ${security_context}
+
+  resources: ${resources}
+
+  podAnnotations: ${pod_annotations}
+
+  nodeSelector: ${node_selector}
+
+  tolerations: ${tolerations}
+
+  affinity: ${affinity}
+
+  # vmalert alert rules configuration configuration:
+  # use existing configmap if specified
+  # otherwise .config values will be used
+  configMap: ""
+  config:
+    alerts:
+      groups:
+        ${alerts}
+        ${rules}
