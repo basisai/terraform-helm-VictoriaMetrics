@@ -433,7 +433,7 @@ variable "vm_storage_termination_grace_period_seconds" {
 #################################
 variable "vm_alert_enabled" {
   description = "Deploy VictoriaMetrics Alert"
-  default     = false
+  default     = true
 }
 
 variable "vm_alert_helm_release_max_history" {
@@ -546,7 +546,7 @@ variable "prometheus_alertmanager_url" {
 #################################
 variable "vm_agent_enabled" {
   description = "Deploy VictoriaMetrics Agent"
-  default     = false
+  default     = true
 }
 
 variable "vm_agent_helm_release_max_history" {
