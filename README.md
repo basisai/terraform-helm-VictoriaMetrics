@@ -9,8 +9,8 @@ This module makes use of the
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
-| helm | >= 1.0 |
+| terraform | >= 0.13 |
+| helm | >= 3.0 |
 
 ## Providers
 
