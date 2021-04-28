@@ -20,7 +20,16 @@ locals {
     image_tag        = var.vm_agent_image_tag
 
     remote_write_url = local.remote_write_api_url
-    extra_args       = jsonencode(var.vm_agent_extra_args)
+    extra_args = jsonencode(merge(
+      var.vm_agent_extra_args,
+      {
+        "envflag.enable" = true
+        "envflag.prefix" = "VM_"
+      }
+    ))
+
+    pdb_min_available = var.vm_agent_pdb_min_available
+    env               = jsonencode(var.vm_agent_env)
 
     replica_count    = var.vm_agent_replica_count
     security_context = jsonencode(var.vm_agent_security_context)

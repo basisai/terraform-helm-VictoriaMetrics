@@ -1,5 +1,11 @@
 replicaCount: ${replica_count}
 
+deployment:
+  enabled: true
+
+statefulset:
+  enabled: false
+
 image:
   repository: ${image_repository}
   tag: ${image_tag}
@@ -7,10 +13,15 @@ image:
 
 rbac:
   create: true
+  pspEnabled: true
 
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: ${pdb_min_available}
 
 # WARN: need to specify at least one remote write url
 remoteWriteUrls:
@@ -19,7 +30,15 @@ remoteWriteUrls:
 extraArgs: ${extra_args}
   # promscrape.maxScrapeSize: "167772160"
 
+env: ${env}
+
 podSecurityContext: ${security_context}
+
+service:
+  enabled: false
+
+ingress:
+  enabled: false
 
 resources: ${resources}
 
@@ -38,6 +57,9 @@ affinity: ${affinity}
 # use existing configmap if specified
 # otherwise .config values will be used
 configMap: ""
+
+persistence:
+  enabled: false
 
 # Extra Volumes for the pod
 extraVolumes: ${extra_volumes}

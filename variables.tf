@@ -611,7 +611,7 @@ variable "vm_agent_chart_repository_url" {
 
 variable "vm_agent_chart_version" {
   description = "Chart version for VictoriaMetrics Agent"
-  default     = "0.4.7"
+  default     = "0.7.15"
 }
 
 variable "vm_agent_namespace" {
@@ -626,12 +626,22 @@ variable "vm_agent_image_repository" {
 
 variable "vm_agent_image_tag" {
   description = "Image tag for VictoriaMetrics Agent server"
-  default     = "v1.37.4"
+  default     = "v1.58.0"
 }
 
 variable "vm_agent_extra_args" {
   description = "Additional VictoriaMetrics Agent container arguments"
   default     = {}
+}
+
+variable "vm_agent_pdb_min_available" {
+  description = "Min Available PDB for VictoriaMetrics Agent server"
+  default     = 1
+}
+
+variable "vm_agent_env" {
+  description = "Environment variables for VictoriaMetrics Agent"
+  default     = []
 }
 
 variable "vm_agent_tolerations" {
