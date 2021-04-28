@@ -20,7 +20,6 @@ server:
   podDisruptionBudget:
     enabled: true
     minAvailable: ${pdb_min_available}
-    labels: {}
 
   env: ${env}
 

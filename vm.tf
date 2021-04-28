@@ -40,7 +40,16 @@ locals {
     select_image_repository    = var.vm_select_image_repository
     select_image_tag           = var.vm_select_image_tag
     select_priority_class_name = var.vm_select_priority_class_name
-    select_extra_args          = jsonencode(var.vm_select_extra_args)
+    select_extra_args = jsonencode(merge(
+      var.vm_select_extra_args,
+      {
+        "envflag.enable" = true
+        "envflag.prefix" = "VM_"
+      }
+    ))
+
+    select_pdb_min_available = var.vm_select_pdb_min_available
+    select_env               = jsonencode(var.vm_select_env)
 
     select_tolerations     = jsonencode(var.vm_select_tolerations)
     select_node_selector   = jsonencode(var.vm_select_node_selector)
@@ -69,7 +78,16 @@ locals {
     insert_image_repository    = var.vm_insert_image_repository
     insert_image_tag           = var.vm_insert_image_tag
     insert_priority_class_name = var.vm_insert_priority_class_name
-    insert_extra_args          = jsonencode(var.vm_insert_extra_args)
+    insert_extra_args = jsonencode(merge(
+      var.vm_insert_extra_args,
+      {
+        "envflag.enable" = true
+        "envflag.prefix" = "VM_"
+      }
+    ))
+
+    insert_pdb_min_available = var.vm_insert_pdb_min_available
+    insert_env               = jsonencode(var.vm_insert_env)
 
     insert_tolerations     = jsonencode(var.vm_insert_tolerations)
     insert_node_selector   = jsonencode(var.vm_insert_node_selector)
@@ -91,7 +109,16 @@ locals {
     storage_priority_class_name = var.vm_storage_priority_class_name
 
     storage_retention_period = var.vm_storage_retention_period
-    storage_extra_args       = jsonencode(var.vm_storage_extra_args)
+    storage_extra_args = jsonencode(merge(
+      var.vm_storage_extra_args,
+      {
+        "envflag.enable" = true
+        "envflag.prefix" = "VM_"
+      }
+    ))
+
+    storage_pdb_min_available = var.vm_storage_pdb_min_available
+    storage_env               = jsonencode(var.vm_storage_env)
 
     storage_tolerations   = jsonencode(var.vm_storage_tolerations)
     storage_node_selector = jsonencode(var.vm_storage_node_selector)

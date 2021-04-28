@@ -27,7 +27,7 @@ locals {
     remote_write_url = local.remote_write_api_url
     remote_read_url  = local.remote_read_api_url
     alertmanager_url = var.prometheus_alertmanager_url
-    extra_args       = jsonencode(merge(
+    extra_args = jsonencode(merge(
       var.vm_alert_extra_args,
       {
         "envflag.enable" = true

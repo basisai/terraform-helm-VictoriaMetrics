@@ -75,7 +75,7 @@ variable "vm_chart_repository_url" {
 
 variable "vm_chart_version" {
   description = "Chart version for VictoriaMetrics"
-  default     = "0.5.15"
+  default     = "0.8.24"
 }
 
 variable "vm_namespace" {
@@ -118,7 +118,7 @@ variable "vm_select_image_repository" {
 
 variable "vm_select_image_tag" {
   description = "Image tag for VictoriaMetrics Select server"
-  default     = "v1.37.4-cluster"
+  default     = "v1.58.0-cluster"
 }
 
 variable "vm_select_priority_class_name" {
@@ -239,7 +239,7 @@ variable "vm_insert_image_repository" {
 
 variable "vm_insert_image_tag" {
   description = "Image tag for VictoriaMetrics Insert server"
-  default     = "v1.37.4-cluster"
+  default     = "v1.58.0-cluster"
 }
 
 variable "vm_insert_priority_class_name" {
@@ -322,7 +322,7 @@ variable "vm_storage_image_repository" {
 
 variable "vm_storage_image_tag" {
   description = "Image tag for VictoriaMetrics Storage server"
-  default     = "v1.37.4-cluster"
+  default     = "v1.58.0-cluster"
 }
 
 variable "vm_storage_priority_class_name" {

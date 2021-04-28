@@ -9,6 +9,7 @@ rbac:
 serviceAccount:
   create: true
   annotations: ${service_account_annotations}
+  automountToken: true
 
 vmselect:
   enabled: ${select_enabled}
@@ -19,6 +20,12 @@ vmselect:
     pullPolicy: IfNotPresent
   priorityClassName: ${select_priority_class_name}
   extraArgs: ${select_extra_args}
+
+  env: ${select_env}
+
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: ${select_pdb_min_available}
 
   tolerations: ${select_tolerations}
   nodeSelector: ${select_node_selector}
@@ -60,6 +67,12 @@ vminsert:
   priorityClassName: ${insert_priority_class_name}
   extraArgs: ${insert_extra_args}
 
+  env: ${insert_env}
+
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: ${insert_pdb_min_available}
+
   tolerations: ${insert_tolerations}
   nodeSelector: ${insert_node_selector}
   affinity: ${insert_affinity}
@@ -92,6 +105,12 @@ vmstorage:
   ## Data retention period in months
   retentionPeriod: ${storage_retention_period}
   extraArgs: ${storage_extra_args}
+
+  env: ${storage_env}
+
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: ${storage_pdb_min_available}
 
   tolerations: ${storage_tolerations}
   nodeSelector: ${storage_node_selector}
