@@ -458,7 +458,7 @@ variable "vm_alert_chart_repository_url" {
 
 variable "vm_alert_chart_version" {
   description = "Chart version for VictoriaMetrics Alert"
-  default     = "0.0.16"
+  default     = "0.3.28"
 }
 
 variable "vm_alert_namespace" {
@@ -473,7 +473,17 @@ variable "vm_alert_image_repository" {
 
 variable "vm_alert_image_tag" {
   description = "Image tag for VictoriaMetrics Alert server"
-  default     = "v1.37.4"
+  default     = "v1.58.0"
+}
+
+variable "vm_alert_pdb_min_available" {
+  description = "Min Available PDB for VictoriaMetrics Alert server"
+  default     = 1
+}
+
+variable "vm_alert_env" {
+  description = "Environment variables for server container"
+  default     = []
 }
 
 variable "vm_alert_extra_args" {

@@ -20,11 +20,20 @@ locals {
     image_repository = var.vm_alert_image_repository
     image_tag        = var.vm_alert_image_tag
 
+    pdb_min_available = var.vm_alert_pdb_min_available
+    env               = jsonencode(var.vm_alert_env)
+
     datasource_url   = local.remote_read_api_url
     remote_write_url = local.remote_write_api_url
     remote_read_url  = local.remote_read_api_url
     alertmanager_url = var.prometheus_alertmanager_url
-    extra_args       = jsonencode(var.vm_alert_extra_args)
+    extra_args       = jsonencode(merge(
+      var.vm_alert_extra_args,
+      {
+        "envflag.enable" = true
+        "envflag.prefix" = "VM_"
+      }
+    ))
 
     service_annotations = jsonencode(var.vm_alert_service_annotations)
     service_labels      = jsonencode(var.vm_alert_service_labels)

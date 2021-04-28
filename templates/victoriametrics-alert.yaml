@@ -4,6 +4,11 @@ serviceAccount:
 alertmanager:
   enabled: false
 
+rbac:
+  create: true
+  pspEnabled: true
+  namespaced: false
+
 server:
   name: server
   enabled: ${enabled}
@@ -11,6 +16,14 @@ server:
     repository: ${image_repository}
     tag: ${image_tag}
     pullPolicy: IfNotPresent
+
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: ${pdb_min_available}
+    labels: {}
+
+  env: ${env}
+
   replicaCount: ${replica_count}
   # vmalert reads metrics from source, next section represents its configuration.
   # It can be any service which supports MetricsQL or PromQL.
