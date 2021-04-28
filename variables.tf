@@ -126,6 +126,16 @@ variable "vm_select_priority_class_name" {
   default     = ""
 }
 
+variable "vm_select_pdb_min_available" {
+  description = "Min Available PDB for VictoriaMetrics Select server"
+  default     = 1
+}
+
+variable "vm_select_env" {
+  description = "Environment variables for VictoriaMetrics Select"
+  default     = []
+}
+
 variable "vm_select_extra_args" {
   description = "Additional VictoriaMetrics Select container arguments"
   default     = {}
@@ -247,6 +257,16 @@ variable "vm_insert_priority_class_name" {
   default     = ""
 }
 
+variable "vm_insert_pdb_min_available" {
+  description = "Min Available PDB for VictoriaMetrics Insert server"
+  default     = 1
+}
+
+variable "vm_insert_env" {
+  description = "Environment variables for VictoriaMetrics Insert"
+  default     = []
+}
+
 variable "vm_insert_extra_args" {
   description = "Additional VictoriaMetrics Insert container arguments"
   default     = {}
@@ -333,6 +353,16 @@ variable "vm_storage_priority_class_name" {
 variable "vm_storage_retention_period" {
   description = "VictoriaMetrics Storage data retention period in months"
   default     = 1
+}
+
+variable "vm_storage_pdb_min_available" {
+  description = "Min Available PDB for VictoriaMetrics Storage server"
+  default     = 1
+}
+
+variable "vm_storage_env" {
+  description = "Environment variables for VictoriaMetrics Storage"
+  default     = []
 }
 
 variable "vm_storage_extra_args" {
@@ -482,7 +512,7 @@ variable "vm_alert_pdb_min_available" {
 }
 
 variable "vm_alert_env" {
-  description = "Environment variables for server container"
+  description = "Environment variables for VictoriaMetrics Alert"
   default     = []
 }
 
