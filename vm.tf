@@ -87,7 +87,7 @@ locals {
       }
     ))
 
-    insert_pdb_enabled       = var.insert_pdb_enabled
+    insert_pdb_enabled       = var.vm_insert_pdb_enabled
     insert_pdb_min_available = var.vm_insert_pdb_min_available
     insert_env               = jsonencode(var.vm_insert_env)
 

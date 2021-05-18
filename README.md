@@ -100,6 +100,7 @@ No modules.
 | <a name="input_vm_insert_image_repository"></a> [vm\_insert\_image\_repository](#input\_vm\_insert\_image\_repository) | Image repository for VictoriaMetrics Insert server | `string` | `"victoriametrics/vminsert"` | no |
 | <a name="input_vm_insert_image_tag"></a> [vm\_insert\_image\_tag](#input\_vm\_insert\_image\_tag) | Image tag for VictoriaMetrics Insert server | `string` | `"v1.58.0-cluster"` | no |
 | <a name="input_vm_insert_node_selector"></a> [vm\_insert\_node\_selector](#input\_vm\_insert\_node\_selector) | Node selector for VictoriaMetrics Insert server pods | `map` | `{}` | no |
+| <a name="input_vm_insert_pdb_enabled"></a> [vm\_insert\_pdb\_enabled](#input\_vm\_insert\_pdb\_enabled) | Enable PDB for VictoriaMetrics Insert server | `bool` | `true` | no |
 | <a name="input_vm_insert_pdb_min_available"></a> [vm\_insert\_pdb\_min\_available](#input\_vm\_insert\_pdb\_min\_available) | Min Available PDB for VictoriaMetrics Insert server | `number` | `1` | no |
 | <a name="input_vm_insert_pod_annotations"></a> [vm\_insert\_pod\_annotations](#input\_vm\_insert\_pod\_annotations) | Annotations for VictoriaMetrics Insert server pods | `map` | `{}` | no |
 | <a name="input_vm_insert_priority_class_name"></a> [vm\_insert\_priority\_class\_name](#input\_vm\_insert\_priority\_class\_name) | Priority Class Name for VictoriaMetrics Insert server | `string` | `""` | no |

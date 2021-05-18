@@ -263,7 +263,7 @@ variable "vm_insert_priority_class_name" {
   default     = ""
 }
 
-variable "vm_insert_pdb_min_available" {
+variable "vm_insert_pdb_enabled" {
   description = "Enable PDB for VictoriaMetrics Insert server"
   type        = bool
   default     = true
