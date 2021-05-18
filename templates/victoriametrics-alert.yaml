@@ -18,7 +18,7 @@ server:
     pullPolicy: IfNotPresent
 
   podDisruptionBudget:
-    enabled: true
+    enabled: ${pdb_enabled}
     minAvailable: ${pdb_min_available}
 
   env: ${env}

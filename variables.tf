@@ -126,6 +126,12 @@ variable "vm_select_priority_class_name" {
   default     = ""
 }
 
+variable "vm_select_pdb_enabled" {
+  description = "Enable PDB for VictoriaMetrics Select server"
+  type        = bool
+  default     = true
+}
+
 variable "vm_select_pdb_min_available" {
   description = "Min Available PDB for VictoriaMetrics Select server"
   default     = 1
@@ -257,6 +263,12 @@ variable "vm_insert_priority_class_name" {
   default     = ""
 }
 
+variable "vm_insert_pdb_enabled" {
+  description = "Enable PDB for VictoriaMetrics Insert server"
+  type        = bool
+  default     = true
+}
+
 variable "vm_insert_pdb_min_available" {
   description = "Min Available PDB for VictoriaMetrics Insert server"
   default     = 1
@@ -353,6 +365,12 @@ variable "vm_storage_priority_class_name" {
 variable "vm_storage_retention_period" {
   description = "VictoriaMetrics Storage data retention period in months"
   default     = 1
+}
+
+variable "vm_storage_pdb_enabled" {
+  description = "Enable PDB for VictoriaMetrics Storage server"
+  type        = bool
+  default     = true
 }
 
 variable "vm_storage_pdb_min_available" {
@@ -506,6 +524,12 @@ variable "vm_alert_image_tag" {
   default     = "v1.58.0"
 }
 
+variable "vm_alert_pdb_enabled" {
+  description = "Enable PDB for VictoriaMetrics Alert server"
+  type        = bool
+  default     = false
+}
+
 variable "vm_alert_pdb_min_available" {
   description = "Min Available PDB for VictoriaMetrics Alert server"
   default     = 1
@@ -632,6 +656,12 @@ variable "vm_agent_image_tag" {
 variable "vm_agent_extra_args" {
   description = "Additional VictoriaMetrics Agent container arguments"
   default     = {}
+}
+
+variable "vm_agent_pdb_enabled" {
+  description = "Enable PDB for VictoriaMetrics Agent server"
+  type        = bool
+  default     = false
 }
 
 variable "vm_agent_pdb_min_available" {

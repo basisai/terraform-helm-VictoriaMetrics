@@ -24,7 +24,7 @@ vmselect:
   env: ${select_env}
 
   podDisruptionBudget:
-    enabled: true
+    enabled: ${select_pdb_enabled}
     minAvailable: ${select_pdb_min_available}
 
   tolerations: ${select_tolerations}
@@ -70,7 +70,7 @@ vminsert:
   env: ${insert_env}
 
   podDisruptionBudget:
-    enabled: true
+    enabled: ${insert_pdb_enabled}
     minAvailable: ${insert_pdb_min_available}
 
   tolerations: ${insert_tolerations}
@@ -109,7 +109,7 @@ vmstorage:
   env: ${storage_env}
 
   podDisruptionBudget:
-    enabled: true
+    enabled: ${storage_pdb_enabled}
     minAvailable: ${storage_pdb_min_available}
 
   tolerations: ${storage_tolerations}
