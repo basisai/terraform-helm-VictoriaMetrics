@@ -28,6 +28,7 @@ locals {
       }
     ))
 
+    pdb_enabled       = var.vm_agent_pdb_enabled
     pdb_min_available = var.vm_agent_pdb_min_available
     env               = jsonencode(var.vm_agent_env)
 

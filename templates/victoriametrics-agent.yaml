@@ -20,7 +20,7 @@ serviceAccount:
   create: true
 
 podDisruptionBudget:
-  enabled: true
+  enabled: ${pdb_enabled}
   minAvailable: ${pdb_min_available}
 
 # WARN: need to specify at least one remote write url

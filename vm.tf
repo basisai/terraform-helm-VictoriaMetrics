@@ -48,6 +48,7 @@ locals {
       }
     ))
 
+    select_pdb_enabled       = var.vm_select_pdb_enabled
     select_pdb_min_available = var.vm_select_pdb_min_available
     select_env               = jsonencode(var.vm_select_env)
 
@@ -86,6 +87,7 @@ locals {
       }
     ))
 
+    insert_pdb_enabled       = var.insert_pdb_enabled
     insert_pdb_min_available = var.vm_insert_pdb_min_available
     insert_env               = jsonencode(var.vm_insert_env)
 
@@ -117,6 +119,7 @@ locals {
       }
     ))
 
+    storage_pdb_enabled       = var.vm_storage_pdb_enabled
     storage_pdb_min_available = var.vm_storage_pdb_min_available
     storage_env               = jsonencode(var.vm_storage_env)
 
