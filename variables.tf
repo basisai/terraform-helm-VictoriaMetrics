@@ -65,6 +65,11 @@ variable "remote_read_api_url_override" {
 #################################
 # VictoriaMetrics
 #################################
+variable "vm_enabled" {
+  description = "Deploy VictoriaMetrics Cluster"
+  default     = true
+}
+
 variable "vm_helm_release_max_history" {
   description = "The maximum number of history releases to keep track for the VM helm release"
   default     = 20
