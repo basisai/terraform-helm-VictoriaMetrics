@@ -20,6 +20,8 @@ locals {
     image_repository = var.vm_alert_image_repository
     image_tag        = var.vm_alert_image_tag
 
+    service_account_annotations = jsonencode(var.vm_alert_service_account_annotations)
+
     pdb_min_available = var.vm_alert_pdb_min_available
     env               = jsonencode(var.vm_alert_env)
 
