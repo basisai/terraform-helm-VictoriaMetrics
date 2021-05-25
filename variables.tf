@@ -50,6 +50,16 @@ variable "server_rules" {
     EOF
 }
 
+variable "remote_write_api_url_override" {
+  description = "Override the remote write api url"
+  default     = ""
+}
+
+variable "remote_read_api_url_override" {
+  description = "Override the remote read api url"
+  default     = ""
+}
+
 #################################
 # VictoriaMetrics
 #################################
