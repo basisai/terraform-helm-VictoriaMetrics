@@ -1,4 +1,6 @@
 resource "helm_release" "vm" {
+  count = var.vm_enabled ? 1 : 0
+
   name       = var.vm_release_name
   chart      = var.vm_chart
   repository = var.vm_chart_repository_url

@@ -52,17 +52,24 @@ variable "server_rules" {
 
 variable "remote_write_api_url_override" {
   description = "Override the remote write api url"
-  default     = ""
+  type        = string
+  default     = null
 }
 
 variable "remote_read_api_url_override" {
   description = "Override the remote read api url"
-  default     = ""
+  type        = string
+  default     = null
 }
 
 #################################
 # VictoriaMetrics
 #################################
+variable "vm_enabled" {
+  description = "Deploy VictoriaMetrics Cluster"
+  default     = true
+}
+
 variable "vm_helm_release_max_history" {
   description = "The maximum number of history releases to keep track for the VM helm release"
   default     = 20
