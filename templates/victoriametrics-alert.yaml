@@ -1,5 +1,6 @@
 serviceAccount:
   create: true
+  annotations: ${service_account_annotations}
 
 alertmanager:
   enabled: false

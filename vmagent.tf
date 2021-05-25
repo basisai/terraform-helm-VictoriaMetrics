@@ -19,6 +19,8 @@ locals {
     image_repository = var.vm_agent_image_repository
     image_tag        = var.vm_agent_image_tag
 
+    service_account_annotations = jsonencode(var.vm_agent_service_account_annotations)
+
     remote_write_url = local.remote_write_api_url
     extra_args = jsonencode(merge(
       var.vm_agent_extra_args,

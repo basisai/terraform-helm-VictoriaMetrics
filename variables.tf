@@ -75,7 +75,7 @@ variable "vm_chart_repository_url" {
 
 variable "vm_chart_version" {
   description = "Chart version for VictoriaMetrics"
-  default     = "0.8.24"
+  default     = "0.8.26"
 }
 
 variable "vm_namespace" {
@@ -118,7 +118,7 @@ variable "vm_select_image_repository" {
 
 variable "vm_select_image_tag" {
   description = "Image tag for VictoriaMetrics Select server"
-  default     = "v1.58.0-cluster"
+  default     = "v1.60.0-cluster"
 }
 
 variable "vm_select_priority_class_name" {
@@ -255,7 +255,7 @@ variable "vm_insert_image_repository" {
 
 variable "vm_insert_image_tag" {
   description = "Image tag for VictoriaMetrics Insert server"
-  default     = "v1.58.0-cluster"
+  default     = "v1.60.0-cluster"
 }
 
 variable "vm_insert_priority_class_name" {
@@ -354,7 +354,7 @@ variable "vm_storage_image_repository" {
 
 variable "vm_storage_image_tag" {
   description = "Image tag for VictoriaMetrics Storage server"
-  default     = "v1.58.0-cluster"
+  default     = "v1.60.0-cluster"
 }
 
 variable "vm_storage_priority_class_name" {
@@ -506,7 +506,7 @@ variable "vm_alert_chart_repository_url" {
 
 variable "vm_alert_chart_version" {
   description = "Chart version for VictoriaMetrics Alert"
-  default     = "0.3.28"
+  default     = "0.3.30"
 }
 
 variable "vm_alert_namespace" {
@@ -521,7 +521,12 @@ variable "vm_alert_image_repository" {
 
 variable "vm_alert_image_tag" {
   description = "Image tag for VictoriaMetrics Alert server"
-  default     = "v1.58.0"
+  default     = "v1.60.0"
+}
+
+variable "vm_alert_account_annotations" {
+  description = "Service Account Annotations for VictoriaMetrics Alert server"
+  default     = {}
 }
 
 variable "vm_alert_pdb_enabled" {
@@ -635,7 +640,7 @@ variable "vm_agent_chart_repository_url" {
 
 variable "vm_agent_chart_version" {
   description = "Chart version for VictoriaMetrics Agent"
-  default     = "0.7.15"
+  default     = "0.7.17"
 }
 
 variable "vm_agent_namespace" {
@@ -650,7 +655,12 @@ variable "vm_agent_image_repository" {
 
 variable "vm_agent_image_tag" {
   description = "Image tag for VictoriaMetrics Agent server"
-  default     = "v1.58.0"
+  default     = "v1.60.0"
+}
+
+variable "vm_agent_account_annotations" {
+  description = "Service Account Annotations for VictoriaMetrics Agent server"
+  default     = {}
 }
 
 variable "vm_agent_extra_args" {
