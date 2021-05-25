@@ -534,7 +534,7 @@ variable "vm_alert_image_tag" {
   default     = "v1.60.0"
 }
 
-variable "vm_alert_account_annotations" {
+variable "vm_alert_service_account_annotations" {
   description = "Service Account Annotations for VictoriaMetrics Alert server"
   default     = {}
 }
@@ -668,7 +668,7 @@ variable "vm_agent_image_tag" {
   default     = "v1.60.0"
 }
 
-variable "vm_agent_account_annotations" {
+variable "vm_agent_service_account_annotations" {
   description = "Service Account Annotations for VictoriaMetrics Agent server"
   default     = {}
 }
